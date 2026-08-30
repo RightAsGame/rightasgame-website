@@ -1,0 +1,611 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Right As Game — Marble Fox Games, Amazon Ads &amp; Conversion Coaching for Authors</title>
+<meta name="description" content="Right As Game publishes fiction and non-fiction in the roleplaying game space under Marble Fox Games, and runs Amazon Ads and conversion coaching for self-published authors.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;0,9..144,600;1,9..144,500&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --ink: #16233D;
+    --ink-deep: #101a2e;
+    --paper: #EDE7D9;
+    --paper-bright: #F5F1E7;
+    --brass: #B5893A;
+    --brass-bright: #D3A85C;
+    --oxblood: #7A2430;
+    --text-on-navy: #F2EEE3;
+    --text-on-paper: #1C2B45;
+    --text-on-paper-soft: #4A5470;
+
+    --display: 'Fraunces', serif;
+    --body: 'IBM Plex Sans', sans-serif;
+    --mono: 'IBM Plex Mono', monospace;
+  }
+
+  * { box-sizing: border-box; }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    margin: 0;
+    background: var(--paper);
+    color: var(--text-on-paper);
+    font-family: var(--body);
+    -webkit-font-smoothing: antialiased;
+  }
+
+  a { color: inherit; }
+
+  .visually-hidden {
+    position: absolute;
+    width: 1px; height: 1px;
+    overflow: hidden;
+    clip: rect(0 0 0 0);
+  }
+
+  a:focus-visible,
+  button:focus-visible {
+    outline: 2px solid var(--brass-bright);
+    outline-offset: 3px;
+  }
+
+  /* ---------- Header ---------- */
+
+  header {
+    background: var(--ink);
+    color: var(--text-on-navy);
+    padding: 28px 6vw;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  .wordmark {
+    font-family: var(--mono);
+    font-size: 0.78rem;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    text-decoration: none;
+    color: var(--text-on-navy);
+  }
+
+  header nav {
+    display: flex;
+    gap: 28px;
+    font-family: var(--mono);
+    font-size: 0.72rem;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+  }
+
+  header nav a {
+    text-decoration: none;
+    color: var(--paper);
+    opacity: 0.75;
+    border-bottom: 1px solid transparent;
+    padding-bottom: 3px;
+    transition: opacity 0.2s ease, border-color 0.2s ease;
+  }
+
+  header nav a:hover { opacity: 1; border-color: var(--brass-bright); }
+
+  @media (max-width: 640px) {
+    header nav { display: none; }
+  }
+
+  /* ---------- Hero ---------- */
+
+  .hero {
+    background: var(--ink);
+    color: var(--text-on-navy);
+    padding: 8vw 6vw 10vw;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .hero-inner {
+    max-width: 760px;
+    position: relative;
+    z-index: 2;
+  }
+
+  .eyebrow {
+    font-family: var(--mono);
+    font-size: 0.75rem;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    color: var(--brass-bright);
+    margin: 0 0 22px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+
+  .eyebrow::before {
+    content: '';
+    width: 26px;
+    height: 1px;
+    background: var(--brass-bright);
+    display: inline-block;
+  }
+
+  .hero h1 {
+    font-family: var(--display);
+    font-weight: 500;
+    font-size: clamp(2.4rem, 5.4vw, 4.4rem);
+    line-height: 1.06;
+    letter-spacing: -0.01em;
+    margin: 0 0 28px;
+  }
+
+  .hero h1 em {
+    font-style: italic;
+    font-weight: 500;
+    color: var(--brass-bright);
+  }
+
+  .hero p.lede {
+    font-size: clamp(1.05rem, 1.6vw, 1.25rem);
+    line-height: 1.65;
+    max-width: 46ch;
+    color: #D9D3C4;
+    margin: 0 0 40px;
+  }
+
+  .cta-row {
+    display: flex;
+    gap: 18px;
+    flex-wrap: wrap;
+    align-items: center;
+  }
+
+  .btn-primary {
+    display: inline-block;
+    background: var(--brass-bright);
+    color: var(--ink-deep);
+    font-family: var(--body);
+    font-weight: 600;
+    font-size: 0.95rem;
+    text-decoration: none;
+    padding: 14px 26px;
+    border-radius: 2px;
+    transition: transform 0.15s ease, background 0.15s ease;
+  }
+
+  .btn-primary:hover { background: #E4BC7A; transform: translateY(-1px); }
+
+  .btn-ghost {
+    font-family: var(--mono);
+    font-size: 0.8rem;
+    letter-spacing: 0.06em;
+    text-decoration: none;
+    color: var(--paper);
+    opacity: 0.8;
+    border-bottom: 1px solid rgba(242,238,227,0.35);
+    padding-bottom: 3px;
+  }
+
+  .btn-ghost:hover { opacity: 1; }
+
+  /* Spine decoration in hero */
+  .spine-row {
+    position: absolute;
+    right: 6vw;
+    top: 50%;
+    transform: translateY(-50%);
+    display: flex;
+    gap: 10px;
+    height: 62%;
+    z-index: 1;
+  }
+
+  .spine {
+    width: 34px;
+    border-radius: 2px 2px 0 0;
+    display: flex;
+    align-items: flex-end;
+    justify-content: center;
+    padding-bottom: 18px;
+    box-shadow: inset -6px 0 10px rgba(0,0,0,0.18);
+  }
+
+  .spine span {
+    writing-mode: vertical-rl;
+    transform: rotate(180deg);
+    font-family: var(--mono);
+    font-size: 0.62rem;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    white-space: nowrap;
+  }
+
+  .spine.s1 { background: var(--oxblood); color: #EFDCCB; height: 88%; }
+  .spine.s2 { background: var(--brass); color: #241705; height: 100%; }
+  .spine.s3 { background: #3B4C74; color: #DCE1EC; height: 78%; }
+  .spine.s4 { background: #5C6A46; color: #EAEFDD; height: 94%; }
+  .spine.s5 { background: #8C3F2E; color: #F0DDCB; height: 70%; }
+
+  @media (max-width: 900px) {
+    .spine-row { display: none; }
+  }
+
+  /* ---------- Imprint banner ---------- */
+
+  .imprint-banner {
+    background: var(--paper-bright);
+    padding: 4.2vw 6vw;
+    border-top: 1px solid rgba(28,43,69,0.1);
+    border-bottom: 1px solid rgba(28,43,69,0.1);
+  }
+
+  .imprint-banner-inner {
+    max-width: 640px;
+    margin: 0 auto;
+    text-align: center;
+  }
+
+  .imprint-banner h2 {
+    font-family: var(--display);
+    font-weight: 500;
+    font-size: clamp(1.5rem, 2.6vw, 2rem);
+    margin: 10px 0 14px;
+    color: var(--text-on-paper);
+  }
+
+  .imprint-banner p {
+    color: var(--text-on-paper-soft);
+    line-height: 1.6;
+    margin: 0;
+    font-size: 0.98rem;
+  }
+
+  /* ---------- Services / shelf ---------- */
+
+  .services {
+    padding: 9vw 6vw;
+    max-width: 1180px;
+    margin: 0 auto;
+  }
+
+  .section-head {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    gap: 40px;
+    margin-bottom: 56px;
+    flex-wrap: wrap;
+  }
+
+  .section-head h2 {
+    font-family: var(--display);
+    font-weight: 500;
+    font-size: clamp(1.7rem, 3vw, 2.4rem);
+    margin: 0;
+    max-width: 20ch;
+  }
+
+  .section-head p {
+    max-width: 34ch;
+    color: var(--text-on-paper-soft);
+    line-height: 1.6;
+    margin: 0;
+    font-size: 0.98rem;
+  }
+
+  .shelf {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 26px;
+  }
+
+  @media (max-width: 760px) {
+    .shelf { grid-template-columns: 1fr; }
+  }
+
+  .book-card {
+    background: var(--ink);
+    color: var(--text-on-navy);
+    padding: 40px 34px 34px;
+    border-radius: 3px;
+    position: relative;
+    border-left: 6px solid var(--brass);
+    transition: border-color 0.2s ease, transform 0.2s ease;
+  }
+
+  .book-card.alt { border-left-color: var(--oxblood); }
+
+  .book-card:hover { transform: translateY(-3px); }
+
+  .book-card .num {
+    font-family: var(--mono);
+    font-size: 0.72rem;
+    letter-spacing: 0.12em;
+    color: var(--brass-bright);
+    display: block;
+    margin-bottom: 18px;
+  }
+
+  .book-card.alt .num { color: #D98A8A; }
+
+  .book-card h3 {
+    font-family: var(--display);
+    font-size: 1.5rem;
+    font-weight: 500;
+    margin: 0 0 16px;
+  }
+
+  .book-card p {
+    line-height: 1.65;
+    color: #CFC9BA;
+    margin: 0 0 18px;
+    font-size: 0.96rem;
+  }
+
+  .book-card ul {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+  }
+
+  .book-card li {
+    font-size: 0.88rem;
+    color: #B9B2A0;
+    padding: 7px 0;
+    border-top: 1px solid rgba(242,238,227,0.1);
+  }
+
+  .book-card li:first-child { border-top: none; }
+
+  /* ---------- Approach ---------- */
+
+  .approach {
+    background: var(--ink);
+    color: var(--text-on-navy);
+    padding: 9vw 6vw;
+  }
+
+  .approach-inner {
+    max-width: 1180px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: 1.1fr 1.4fr;
+    gap: 60px;
+  }
+
+  @media (max-width: 820px) {
+    .approach-inner { grid-template-columns: 1fr; gap: 36px; }
+  }
+
+  .approach h2 {
+    font-family: var(--display);
+    font-weight: 500;
+    font-size: clamp(1.7rem, 3vw, 2.3rem);
+    margin: 0;
+    line-height: 1.2;
+  }
+
+  .approach h2 em { color: var(--brass-bright); font-style: italic; }
+
+  .approach-list {
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+  }
+
+  .approach-item {
+    display: grid;
+    grid-template-columns: 44px 1fr;
+    gap: 18px;
+  }
+
+  .approach-item .mark {
+    font-family: var(--mono);
+    font-size: 0.75rem;
+    color: var(--brass-bright);
+    padding-top: 3px;
+  }
+
+  .approach-item h4 {
+    margin: 0 0 8px;
+    font-family: var(--body);
+    font-weight: 600;
+    font-size: 1.02rem;
+  }
+
+  .approach-item p {
+    margin: 0;
+    color: #C9C3B4;
+    line-height: 1.65;
+    font-size: 0.95rem;
+  }
+
+  /* ---------- Colophon / footer ---------- */
+
+  .colophon {
+    background: var(--paper-bright);
+    padding: 8vw 6vw 6vw;
+  }
+
+  .colophon-inner {
+    max-width: 640px;
+    margin: 0 auto;
+    text-align: center;
+  }
+
+  .colophon-mark {
+    font-family: var(--mono);
+    font-size: 0.7rem;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--brass);
+    margin-bottom: 20px;
+  }
+
+  .colophon h2 {
+    font-family: var(--display);
+    font-style: italic;
+    font-weight: 500;
+    font-size: clamp(1.6rem, 3vw, 2.2rem);
+    margin: 0 0 20px;
+    color: var(--text-on-paper);
+  }
+
+  .colophon p {
+    color: var(--text-on-paper-soft);
+    line-height: 1.7;
+    margin: 0 0 32px;
+    font-size: 1rem;
+  }
+
+  .colophon .btn-primary {
+    background: var(--ink);
+    color: var(--paper-bright);
+  }
+
+  .colophon .btn-primary:hover { background: var(--ink-deep); }
+
+  hr.rule {
+    border: none;
+    border-top: 1px solid rgba(28,43,69,0.18);
+    max-width: 220px;
+    margin: 48px auto;
+  }
+
+  .imprint {
+    font-family: var(--mono);
+    font-size: 0.72rem;
+    color: var(--text-on-paper-soft);
+    letter-spacing: 0.04em;
+    line-height: 1.9;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    html { scroll-behavior: auto; }
+    * { transition: none !important; }
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <a href="#" class="wordmark">Right As Game</a>
+  <nav aria-label="Primary">
+    <a href="#services">Services</a>
+    <a href="#approach">Approach</a>
+    <a href="#contact">Contact</a>
+  </nav>
+</header>
+
+<section class="hero">
+  <div class="hero-inner">
+    <p class="eyebrow">Publishing &amp; Author Services</p>
+    <h1>We publish games fiction ourselves — <em>then help other authors get found.</em></h1>
+    <p class="lede">Right As Game is the studio behind Marble Fox Games, our imprint for fiction and non-fiction in the roleplaying game space — and the team self-published authors bring in to run their Amazon Ads and sharpen what actually sells on the page.</p>
+    <div class="cta-row">
+      <a href="#contact" class="btn-primary">Start a conversation</a>
+      <a href="#services" class="btn-ghost">See what we do →</a>
+    </div>
+  </div>
+  <div class="spine-row" aria-hidden="true">
+    <div class="spine s1"><span>ADS</span></div>
+    <div class="spine s2"><span>RPG</span></div>
+    <div class="spine s3"><span>COVERS</span></div>
+    <div class="spine s4"><span>COPY</span></div>
+    <div class="spine s5"><span>DATA</span></div>
+  </div>
+</section>
+
+<section class="imprint-banner">
+  <div class="imprint-banner-inner">
+    <p class="colophon-mark">Our imprint</p>
+    <h2>Marble Fox Games</h2>
+    <p>Fiction and non-fiction set in the roleplaying game space — the shelf we stock ourselves, before we help anyone else stock theirs.</p>
+  </div>
+</section>
+
+<section class="services" id="services">
+  <div class="section-head">
+    <h2>Two ways we work with authors</h2>
+    <p>Whichever stage a book is at — pre-launch or three years into a backlist — the work is the same discipline applied differently.</p>
+  </div>
+  <div class="shelf">
+    <div class="book-card">
+      <span class="num">01 — ONGOING</span>
+      <h3>Amazon Ads Management</h3>
+      <p>Sponsored Products and Sponsored Brands campaigns run and read closely, not set-and-forgotten — because a book's margins don't forgive wasted spend the way a bigger catalog can. Every month you get a plain read on what changed and why, not just a login and a number to interpret yourself.</p>
+      <ul>
+        <li>Search term audits &amp; negative keyword mining</li>
+        <li>Bid and budget management</li>
+        <li>Campaign structure &amp; keyword expansion</li>
+      </ul>
+    </div>
+    <div class="book-card alt">
+      <span class="num">02 — COACHING</span>
+      <h3>Conversion Coaching</h3>
+      <p>A close read of what's actually stopping a browser from becoming a buyer — the cover, the description, and how the whole product page reads together.</p>
+      <ul>
+        <li>Book cover review &amp; feedback</li>
+        <li>Book description review &amp; rewrites</li>
+        <li>Full product page walkthrough</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<section class="approach" id="approach">
+  <div class="approach-inner">
+    <h2>We treat every author's page the way we'd want ours <em>treated.</em></h2>
+    <div class="approach-list">
+      <div class="approach-item">
+        <span class="mark">→</span>
+        <div>
+          <h4>Every dollar gets classified</h4>
+          <p>Spend is sorted into what's working, what's borderline, and what's simply wasted — against your account's own numbers, not an industry average.</p>
+        </div>
+      </div>
+      <div class="approach-item">
+        <span class="mark">→</span>
+        <div>
+          <h4>No black-box reporting</h4>
+          <p>You see the same search term reports and reasoning we're working from — not a summary dashboard standing in for the actual data.</p>
+        </div>
+      </div>
+      <div class="approach-item">
+        <span class="mark">→</span>
+        <div>
+          <h4>Small enough to stay close</h4>
+          <p>Accounts are managed directly, not handed off down a chain — the person setting strategy is the person reading your reports.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="colophon" id="contact">
+  <div class="colophon-inner">
+    <p class="colophon-mark">Get in touch</p>
+    <h2>Let's look at your listing together.</h2>
+    <p>Send a note with the book, the marketplace, and what's not working yet — we'll tell you honestly whether we can help.</p>
+    <a href="mailto:kristopher@rightasgame.com" class="btn-primary">kristopher@rightasgame.com</a>
+
+    <hr class="rule">
+
+    <p class="imprint">
+      RIGHT AS GAME<br>
+      This is a service of Right As Game Inc.<br>
+      56A Mill St E, Unit #142, Acton, ON L7J 1H3, Canada<br>
+      © <span id="year"></span> Right As Game
+    </p>
+  </div>
+</section>
+
+<script>
+  document.getElementById('year').textContent = new Date().getFullYear();
+</script>
+
+</body>
+</html>
